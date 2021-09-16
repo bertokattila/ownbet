@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//app.use(express.static("static"));
+app.use(express.static("static"));
 
 app.use(
 	session({
@@ -20,7 +20,7 @@ app.use((err, req, res, next) => {
 	console.log(err);
 });
 
-require("./route/router")(app);
+//require("./route/router")(app);
 
 app.listen(3000, function () {
 	console.log("Hello :3000");

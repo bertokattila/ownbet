@@ -1,0 +1,45 @@
+body {
+	margin-top: 10%;
+}
+h1 {
+	font-size: 70px;
+	margin-bottom: 0;
+}
+h2 {
+	font-weight: normal;
+}
+.flex-container {
+	display: flex;
+	justify-content: center;
+}
+.login-container {
+	display: flex;
+	flex-direction: column;
+	max-width: 100%;
+	justify-content: center;
+}
+.login-container input,
+.login-container button {
+	max-width: 100%;
+	margin: 0;
+	margin-bottom: 1rem;
+	padding: 0;
+	border: 0;
+}
+.login-container input {
+	width: 400px;
+	height: 27px;
+	background-color: var(--cl-grey-light);
+	border-radius: 15px;
+	padding-left: 20px;
+}
+.login-container input::placeholder {
+	color: var(--cl-grey-dark);
+}
+
+.login-container button {
+	align-self: center;
+	color: white;
+	font-size: large;
+	font-weight: bold;
+}
