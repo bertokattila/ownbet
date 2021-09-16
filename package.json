@@ -1,0 +1,28 @@
+{
+	"name": "ownbet",
+	"version": "1.0.0",
+	"description": "Node.js class homework",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "nodemon index"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bertokattila/ownbet.git"
+	},
+	"author": "Attila Bertok",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/bertokattila/ownbet/issues"
+	},
+	"homepage": "https://github.com/bertokattila/ownbet#readme",
+	"dependencies": {
+		"express": "^4.17.1",
+		"express-session": "^1.17.2"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.12"
+	},
+	"type": "commonjs"
+}
