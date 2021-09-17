@@ -1,0 +1,28 @@
+.list-container {
+	display: flex;
+	flex-direction: column;
+}
+.list-item {
+	display: flex;
+	flex-direction: row;
+	width: 600px;
+	height: 50px;
+	background-color: var(--cl-grey-dark);
+	border-radius: 15px;
+	color: white;
+	padding-left: 1rem;
+	align-items: center;
+}
+.list-item p {
+	color: white;
+	margin: 0;
+}
+.teams {
+	font-weight: bold;
+}
+.first-col {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	text-align: start;
+}

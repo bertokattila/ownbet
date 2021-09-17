@@ -42,10 +42,19 @@ a {
 	text-decoration: none;
 	color: var(--cl-main-text);
 }
+ul {
+	list-style-type: none;
+}
 .standard-btn {
 	height: 37px;
 	width: 122px;
 	background-color: var(--cl-grey-dark);
 	border-radius: 15px;
 	cursor: pointer;
+	color: white;
+	font-size: large;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	border: 0;
 }
