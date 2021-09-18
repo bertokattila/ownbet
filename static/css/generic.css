@@ -23,7 +23,6 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-
 	background-color: var(--cl-main-bg);
 	text-align: center;
 }
@@ -57,4 +56,8 @@ ul {
 	margin: 0;
 	padding: 0;
 	border: 0;
+}
+.content-container {
+	max-width: 1800px;
+	margin: auto;
 }

@@ -1,17 +1,23 @@
 .list-container {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 3rem;
 }
 .list-item {
 	display: flex;
 	flex-direction: row;
 	width: 600px;
+	max-width: 90%;
 	height: 50px;
 	background-color: var(--cl-grey-dark);
 	border-radius: 15px;
 	color: white;
 	padding-left: 1rem;
 	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1rem;
 }
 .list-item p {
 	color: white;
@@ -25,4 +31,41 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	text-align: start;
+}
+.last-col {
+	margin-right: 15px;
+}
+.last-col * {
+	margin: 5px;
+}
+.list-item-btn {
+	height: 25px;
+	width: 100px;
+	color: black;
+	border-radius: 15px;
+	cursor: pointer;
+	background-color: white;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+.input-col {
+	width: 3rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.input-col input {
+	width: 1.2rem;
+	height: 1rem;
+	border-radius: 15px;
+	border: 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: medium;
+}
+.input-col p {
+	margin: 1rem;
 }
