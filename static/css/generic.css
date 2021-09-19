@@ -62,4 +62,8 @@ ul {
 	margin: auto;
 	padding-left: 5%;
 	padding-right: 5%;
+	text-align: start;
+}
+.page-title {
+	margin: 0;
 }

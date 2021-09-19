@@ -21,6 +21,7 @@
 	flex-direction: row;
 }
 .navbar-list {
+	margin-top: 0;
 	display: flex;
 	flex-direction: row;
 	padding: 0;
