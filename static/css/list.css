@@ -2,19 +2,19 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
 	margin-top: 3rem;
 }
 .list-item {
 	display: flex;
 	flex-direction: row;
 	width: 600px;
-	max-width: 90%;
+	max-width: 97%;
 	height: 50px;
 	background-color: var(--cl-grey-dark);
 	border-radius: 15px;
 	color: white;
 	padding-left: 1rem;
+	padding-right: 1rem;
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 1rem;
@@ -52,7 +52,6 @@
 	border: 0;
 }
 .input-col {
-	width: 3rem;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -68,4 +67,29 @@
 }
 .input-col p {
 	margin: 1rem;
+}
+.result-col {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	text-align: start;
+	font-weight: bold;
+}
+.tip-col {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	text-align: start;
+	font-weight: bold;
+}
+.point-col p,
+.player-col p {
+	font-weight: bold;
+}
+.player-col {
+	display: flex;
+	flex-direction: row;
+}
+.rank {
+	margin-right: 0.5rem !important;
 }
