@@ -1,11 +1,19 @@
-module.exports = (app) => {
-	app.get("/", (req, res) => {
-		res.send("Hello");
+const loginMW = require('../middleware/auth/loginMW');
+const authMW = require('../middleware/auth/authMW');
+const path = require('path');
+module.exports = (app, express) => {
+	app.use(express.static('public'));
+	app.get('/', (req, res) => {
+		res.sendFile(path.join(__dirname, '../static', 'index.html'));
 	});
-	app.get("/admin", (req, res) => {
-		res.send("Admin");
+
+	app.get('/admin', (req, res) => {
+		res.send('Admin');
 	});
-	app.get("/upcoming", (req, res) => {
-		res.send("Upcoming");
+
+	app.get('/upcoming', authMW(), (req, res) => {
+		res.sendFile(path.join(__dirname, '../static', 'upcoming.html'));
 	});
+
+	app.post('/login', loginMW());
 };
