@@ -14,6 +14,12 @@ module.exports = (app, express) => {
 	app.get('/upcoming', authMW(), (req, res) => {
 		res.sendFile(path.join(__dirname, '../static', 'upcoming.html'));
 	});
+	app.get('/results', authMW(), (req, res) => {
+		res.sendFile(path.join(__dirname, '../static', 'results.html'));
+	});
+	app.get('/leaderboard', authMW(), (req, res) => {
+		res.sendFile(path.join(__dirname, '../static', 'leaderboard.html'));
+	});
 
 	app.post('/login', loginMW());
 };

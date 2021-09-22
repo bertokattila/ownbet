@@ -1,3 +1,5 @@
+const session = require('express-session');
+
 /**
  * Handles the login request
  */
@@ -14,11 +16,13 @@ module.exports = () => {
 
 		if (req.body.username === 'admin' && req.body.password == 'admin') {
 			req.session.authorized = true;
-			res.send('loggedIn');
+			req.session.username = req.body.username;
+			res.redirect('/admin');
 		}
 		if (req.body.username === 'user' && req.body.password == 'user') {
 			req.session.loggedIn = true;
-			res.send('loggedIn');
+			req.session.username = req.body.username;
+			res.redirect('/upcoming');
 		}
 	};
 };
