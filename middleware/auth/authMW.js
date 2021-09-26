@@ -6,6 +6,7 @@ module.exports = () => {
 		) {
 			return res.redirect('/');
 		}
+		res.locals.username = req.session.username;
 		return next();
 	};
 };

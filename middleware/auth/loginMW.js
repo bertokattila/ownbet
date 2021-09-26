@@ -14,12 +14,15 @@ module.exports = () => {
 			return next();
 		}
 
+		/// fake password check until mongodb is not implemented
 		if (req.body.username === 'admin' && req.body.password == 'admin') {
-			req.session.authorized = true;
+			req.session.isAdmin = true;
+			req.session.loggedIn = true;
 			req.session.username = req.body.username;
 			res.redirect('/admin');
 		}
 		if (req.body.username === 'user' && req.body.password == 'user') {
+			req.session.isAdmin = false;
 			req.session.loggedIn = true;
 			req.session.username = req.body.username;
 			res.redirect('/upcoming');

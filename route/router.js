@@ -1,25 +1,24 @@
 const loginMW = require('../middleware/auth/loginMW');
 const authMW = require('../middleware/auth/authMW');
 const path = require('path');
+const testMW = require('../middleware/testMW');
+const authAdminMW = require('../middleware/auth/authAdminMW');
 module.exports = (app, express) => {
-	app.use(express.static('public'));
-	app.get('/', (req, res) => {
-		res.sendFile(path.join(__dirname, '../static', 'index.html'));
+	app.get('/admin', authMW(), authAdminMW(), (req, res) => {
+		res.render('admin');
 	});
-
-	app.get('/admin', (req, res) => {
-		res.send('Admin');
-	});
-
 	app.get('/upcoming', authMW(), (req, res) => {
-		res.sendFile(path.join(__dirname, '../static', 'upcoming.html'));
+		res.render('upcoming');
 	});
 	app.get('/results', authMW(), (req, res) => {
-		res.sendFile(path.join(__dirname, '../static', 'results.html'));
+		res.render('results');
 	});
 	app.get('/leaderboard', authMW(), (req, res) => {
-		res.sendFile(path.join(__dirname, '../static', 'leaderboard.html'));
+		res.render('leaderboard');
 	});
 
 	app.post('/login', loginMW());
+	app.get('/', testMW(), (req, res) => {
+		res.render('index');
+	});
 };
