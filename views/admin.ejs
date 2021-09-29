@@ -2,9 +2,7 @@
 <html>
 	<head>
 		<title>OwnBet</title>
-		<link rel="stylesheet" href="./css/generic.css" />
-		<link rel="stylesheet" href="./css/header.css" />
-		<link rel="stylesheet" href="./css/list.css" />
+		<link rel="stylesheet" href="./css/collector.css" />
 	</head>
 	<body>
 		<section class="content-container">
@@ -15,7 +13,7 @@
 					<button class="standard-btn" type="submit">Log out</button>
 				</section>
 			</header>
-			<button class="standard-btn" type="submit">New match</button>
+			<button class="standard-btn" id="newMatchBtn">New match</button>
 			<section class="list-container">
 				<div class="list-item">
 					<div class="first-col">
@@ -64,5 +62,43 @@
 				</div>
 			</section>
 		</section>
+
+		<div class="newMatchContainer" id="newMatchContainer"></div>
+		<form class="newMatchInputContainer" id="newMatchInputContainer">
+			<h2>New match</h2>
+			<input
+				type="text"
+				class="newMatchTextInput"
+				placeholder="Home team"
+				required
+			/>
+			<input
+				type="text"
+				class="newMatchTextInput"
+				placeholder="Away team"
+				required
+			/>
+			<input
+				type="date"
+				id="newMatchDatePicker"
+				value="2021-10-22"
+				min="2021-01-01"
+				max="2100-12-31"
+			/>
+			<button id="newMatchBtn" class="standard-btn">Add match</button>
+		</form>
+
+		<script>
+			document.getElementById('newMatchBtn').onclick = function () {
+				document.getElementById('newMatchContainer').style.display = 'block';
+				document.getElementById('newMatchInputContainer').style.display =
+					'flex';
+			};
+			document.getElementById('newMatchContainer').onclick = function () {
+				document.getElementById('newMatchContainer').style.display = 'none';
+				document.getElementById('newMatchInputContainer').style.display =
+					'none';
+			};
+		</script>
 	</body>
 </html>

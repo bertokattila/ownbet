@@ -1,0 +1,39 @@
+.newMatchContainer {
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	position: absolute;
+	top: 0;
+	opacity: 0.3;
+}
+.newMatchInputContainer {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 300px;
+	background-color: white;
+	border-radius: 15px;
+	flex-direction: column;
+	align-items: center;
+}
+.newMatchTextInput {
+	width: 400px;
+	height: 27px;
+	background-color: var(--cl-grey-light);
+	border-radius: 15px;
+	padding-left: 20px;
+	max-width: 100%;
+	margin: 0;
+	margin-bottom: 1rem;
+	border: 0;
+}
+.newMatchBtn {
+}
+#newMatchDatePicker {
+	margin-bottom: 20px;
+}

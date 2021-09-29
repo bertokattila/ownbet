@@ -1,8 +1,10 @@
+const path = require('path');
 const loginMW = require('../middleware/auth/loginMW');
 const authMW = require('../middleware/auth/authMW');
-const path = require('path');
 const testMW = require('../middleware/testMW');
 const authAdminMW = require('../middleware/auth/authAdminMW');
+const getUpcomingMatchesMW = require('../middleware/match/getUpcomingMatches');
+
 module.exports = (app, express) => {
 	app.get('/admin', authMW(), authAdminMW(), (req, res) => {
 		res.render('admin');
@@ -16,9 +18,8 @@ module.exports = (app, express) => {
 	app.get('/leaderboard', authMW(), (req, res) => {
 		res.render('leaderboard');
 	});
-
 	app.post('/login', loginMW());
-	app.get('/', testMW(), (req, res) => {
+	app.get('/', testMW(), getUpcomingMatchesMW(), (req, res) => {
 		res.render('index');
 	});
 };

@@ -6,7 +6,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static('public')); /// for css files
+app.use(express.static('static')); /// for css files
 
 app.set('view engine', 'ejs');
 
@@ -22,6 +22,15 @@ app.use((err, req, res, next) => {
 });
 
 require('./route/router')(app, express);
+
+const matches = require('./mockDatabase/matches');
+
+//console.log(matches[0].date);
+
+var datetime = new Date();
+console.log(datetime);
+console.log(datetime.toDateString());
+console.log(datetime.toTimeString());
 
 app.listen(3000, function () {
 	console.log('Hello :3000');

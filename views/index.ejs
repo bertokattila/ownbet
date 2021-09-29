@@ -1,16 +1,18 @@
 <%- include('header') -%>
-		<h1>Welcome to OwnBet</h1>
-		<h2>Create your own football betting championship with your friends</h2>
 
-		<form action="/login" method="POST">
-			<div class="flex-container">
-					<div class="login-container">
-						<input type="text" placeholder="Username" name="username" required />
+<h1>Welcome to OwnBet</h1>
+<h2>Create your own football betting championship with your friends</h2>
 
-						<input type="password" placeholder="Password" name="password" required />
+<form action="/login" method="POST">
+	<div class="flex-container">
+		<div class="login-container">
+			<input type="text" placeholder="Username" name="username" required />
 
-						<button class="standard-btn" type="submit" />Login</button>
-					</div>
-			</div>
-		</form>
+			<input type="password" placeholder="Password" name="password" required />
+
+			<button class="standard-btn" type="submit">Login</button>
+		</div>
+	</div>
+</form>
+
 <%- include('footer') -%>
