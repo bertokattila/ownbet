@@ -6,6 +6,7 @@ module.exports = () => {
 		) {
 			return res.redirect('/');
 		}
+		res.locals.isAdmin = true;
 		return next();
 	};
 };

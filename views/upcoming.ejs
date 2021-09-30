@@ -1,75 +1,46 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>OwnBet</title>
-		<link rel="stylesheet" href="./css/generic.css" />
-		<link rel="stylesheet" href="./css/header.css" />
-		<link rel="stylesheet" href="./css/list.css" />
-	</head>
-	<body>
-		<section class="content-container">
-			<header class="header">
-				<nav class="navbar">
-					<ul class="navbar-list">
-						<li>
-							<a href="/upcoming"><b>Upcoming matches</b></a>
-						</li>
-						<div class="vl"></div>
-						<li><a href="/results">Results</a></li>
-						<div class="vl"></div>
-						<li><a href="/leaderboard">Leaderboard</a></li>
-					</ul>
-				</nav>
-				<section class="user-info">
-					<p>Seckso Fender</p>
-					<button class="standard-btn" type="submit">Log out</button>
-				</section>
-			</header>
-
-			<section class="list-container">
-				<div class="list-item">
-					<div class="first-col">
-						<p class="teams">Sevilla - Man City</p>
-						<p class="date">2020. 09. 09.</p>
-					</div>
-					<div class="input-col">
-						<input type="text" />
-						<p class="input-separator">-</p>
-						<input type="text" />
-					</div>
-					<div class="last-col">
-						<button class="list-item-btn">Save bet</button>
-					</div>
-				</div>
-				<div class="list-item">
-					<div class="first-col">
-						<p class="teams">Sevilla - Man City</p>
-						<p class="date">2020. 09. 09.</p>
-					</div>
-					<div class="input-col">
-						<input type="text" />
-						<p class="input-separator">-</p>
-						<input type="text" />
-					</div>
-					<div class="last-col">
-						<button class="list-item-btn">Save bet</button>
-					</div>
-				</div>
-				<div class="list-item">
-					<div class="first-col">
-						<p class="teams">Sevilla - Man City</p>
-						<p class="date">2020. 09. 09.</p>
-					</div>
-					<div class="input-col">
-						<input type="text" />
-						<p class="input-separator">-</p>
-						<input type="text" />
-					</div>
-					<div class="last-col">
-						<button class="list-item-btn">Save bet</button>
-					</div>
-				</div>
-			</section>
-		</section>
-	</body>
-</html>
+<%- include('header') -%> <%- include('navbar') -%>
+<section class="list-container">
+	<div class="list-item">
+		<div class="first-col">
+			<p class="teams">Sevilla - Man City</p>
+			<p class="date">2020. 09. 09.</p>
+		</div>
+		<div class="input-col">
+			<input type="text" />
+			<p class="input-separator">-</p>
+			<input type="text" />
+		</div>
+		<div class="last-col">
+			<button class="list-item-btn">Save bet</button>
+		</div>
+	</div>
+	<div class="list-item">
+		<div class="first-col">
+			<p class="teams">Sevilla - Man City</p>
+			<p class="date">2020. 09. 09.</p>
+		</div>
+		<div class="input-col">
+			<input type="text" />
+			<p class="input-separator">-</p>
+			<input type="text" />
+		</div>
+		<div class="last-col">
+			<button class="list-item-btn">Save bet</button>
+		</div>
+	</div>
+	<div class="list-item">
+		<div class="first-col">
+			<p class="teams">Sevilla - Man City</p>
+			<p class="date">2020. 09. 09.</p>
+		</div>
+		<div class="input-col">
+			<input type="text" />
+			<p class="input-separator">-</p>
+			<input type="text" />
+		</div>
+		<div class="last-col">
+			<button class="list-item-btn">Save bet</button>
+		</div>
+	</div>
+</section>
+<%- include('footer') -%>

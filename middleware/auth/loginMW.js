@@ -20,12 +20,15 @@ module.exports = () => {
 			req.session.loggedIn = true;
 			req.session.username = req.body.username;
 			res.redirect('/admin');
+			return;
 		}
 		if (req.body.username === 'user' && req.body.password == 'user') {
 			req.session.isAdmin = false;
 			req.session.loggedIn = true;
 			req.session.username = req.body.username;
 			res.redirect('/upcoming');
+			return;
 		}
+		res.redirect('/');
 	};
 };

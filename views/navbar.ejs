@@ -1,0 +1,38 @@
+<header class="header">
+	<nav class="navbar">
+		<ul class="navbar-list">
+			<li>
+				<a href="/upcoming">
+					<% if(navbarActivePage === 'upcoming'){ %>
+					<strong>Upcoming matches</strong> <% }else{ %> Upcoming matches <% }
+					%>
+				</a>
+			</li>
+			<div class="vl"></div>
+			<li>
+				<a href="/results">
+					<% if(navbarActivePage === 'results'){ %> <strong>Results</strong> <%
+					}else{ %> Results <% } %></a
+				>
+			</li>
+			<div class="vl"></div>
+			<li>
+				<a href="/leaderboard">
+					<% if(navbarActivePage === 'leaderboard'){ %>
+					<strong>Leaderboard</strong> <% }else{ %> Leaderboard <% } %></a
+				>
+			</li>
+			<% if(typeof isAdmin !== 'undefined' && isAdmin === true){ %>
+			<li>
+				<a href="/admin">
+					<strong>Admin</strong>
+				</a>
+				<% } %>
+			</li>
+		</ul>
+	</nav>
+	<section class="user-info">
+		<p><%= username %></p>
+		<button class="standard-btn" type="submit">Log out</button>
+	</section>
+</header>

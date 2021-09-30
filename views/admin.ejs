@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>OwnBet</title>
-		<link rel="stylesheet" href="./css/collector.css" />
-	</head>
-	<body>
-		<section class="content-container">
-			<header class="header">
-				<h2 class="page-title">Admin page</h2>
-				<section class="user-info">
-					<p>Seckso Fender</p>
-					<button class="standard-btn" type="submit">Log out</button>
-				</section>
-			</header>
+<%- include('header') -%> <%- include('navbar') -%>
 			<button class="standard-btn" id="newMatchBtn">New match</button>
 			<section class="list-container">
 				<div class="list-item">
@@ -61,7 +47,6 @@
 					</div>
 				</div>
 			</section>
-		</section>
 
 		<div class="newMatchContainer" id="newMatchContainer"></div>
 		<form class="newMatchInputContainer" id="newMatchInputContainer">
