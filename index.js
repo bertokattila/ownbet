@@ -27,11 +27,11 @@ const matches = require('./mockDatabase/matches');
 
 //console.log(matches[0].date);
 
-var datetime = new Date();
+/*var datetime = new Date();
 console.log(datetime);
 console.log(datetime.toDateString());
 console.log(datetime.toTimeString());
-
+*/
 app.listen(3000, function () {
 	console.log('Hello :3000');
 });

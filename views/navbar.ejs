@@ -23,9 +23,11 @@
 				>
 			</li>
 			<% if(typeof isAdmin !== 'undefined' && isAdmin === true){ %>
+			<div class="vl"></div>
 			<li>
 				<a href="/admin">
-					<strong>Admin</strong>
+					<% if(navbarActivePage === 'admin'){ %>
+					<strong>Admin</strong> <% }else{ %> Admin <% } %>
 				</a>
 				<% } %>
 			</li>
@@ -33,6 +35,8 @@
 	</nav>
 	<section class="user-info">
 		<p><%= username %></p>
-		<button class="standard-btn" type="submit">Log out</button>
+		<form action="/logout" method="GET">
+			<button class="standard-btn" type="submit">Log out</button>
+		</form>
 	</section>
 </header>
