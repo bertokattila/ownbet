@@ -2,9 +2,10 @@ const path = require('path');
 const loginMW = require('../middleware/auth/loginMW');
 const authMW = require('../middleware/auth/authMW');
 const authAdminMW = require('../middleware/auth/authAdminMW');
-const getUpcomingMatchesMW = require('../middleware/match/getUpcomingMatches');
+const getUpcomingMatchesMW = require('../middleware/match/getUpcomingMatchesMW');
 const authPageAccessMW = require('../middleware/auth/authPageAccessMW');
 const logoutMW = require('../middleware/auth/logoutMW');
+const addBet = require('../middleware/bet/addBetMW');
 
 module.exports = (app, express) => {
 	app.get('/admin', authMW(), authAdminMW(), authPageAccessMW(), (req, res) => {
@@ -23,6 +24,7 @@ module.exports = (app, express) => {
 		res.locals.navbarActivePage = 'leaderboard';
 		res.render('leaderboard');
 	});
+	app.post('/upcoming/:matchid/makebet', authMW(), addBet);
 	app.post('/login', loginMW());
 	app.use('/logout', logoutMW());
 	app.get('/', (req, res) => {
