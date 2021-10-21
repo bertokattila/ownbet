@@ -17,8 +17,9 @@ const newMatchMW = require('../middleware/match/newMatchMW');
 const setMatchResultMW = require('../middleware/match/setMatchResultMW');
 const getBetsOnMatchesMW = require('../middleware/bet/getBetsOnMatchesMW');
 const calculatePointsMW = require('../middleware/bet/calculatePointsMW');
+const renderMW = require('../middleware/renderMW');
 
-module.exports = (app, express) => {
+module.exports = (app) => {
 	/**
 	 * Renders the admin page if logged in as admin
 	 */
@@ -28,10 +29,7 @@ module.exports = (app, express) => {
 		authAdminMW(),
 		authPageAccessMW(),
 		getAllMatchesMW(),
-		(req, res) => {
-			res.locals.navbarActivePage = 'admin';
-			res.render('admin');
-		}
+		renderMW('admin')
 	);
 
 	/**
@@ -62,10 +60,7 @@ module.exports = (app, express) => {
 		authMW(),
 		authPageAccessMW(),
 		getUpcomingMatchesMW(),
-		(req, res) => {
-			res.locals.navbarActivePage = 'upcoming';
-			res.render('upcoming');
-		}
+		renderMW('upcoming')
 	);
 
 	/**
@@ -90,10 +85,7 @@ module.exports = (app, express) => {
 		getMatchResultsMW(),
 		getBetsOnMatchesMW(),
 		calculatePointsMW(),
-		(req, res) => {
-			res.locals.navbarActivePage = 'results';
-			res.render('results');
-		}
+		renderMW('results')
 	);
 
 	/**
@@ -104,10 +96,7 @@ module.exports = (app, express) => {
 		authMW(),
 		authPageAccessMW(),
 		getLeaderboardMW(),
-		(req, res) => {
-			res.locals.navbarActivePage = 'leaderboard';
-			res.render('leaderboard');
-		}
+		renderMW('leaderboard')
 	);
 
 	/**
@@ -123,7 +112,5 @@ module.exports = (app, express) => {
 	/**
 	 * Renders the login page
 	 */
-	app.get('/', (req, res) => {
-		res.render('index');
-	});
+	app.get('/', renderMW('index'));
 };
