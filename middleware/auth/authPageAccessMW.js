@@ -1,3 +1,7 @@
+/**
+ * Like AuthMW, but this mw calls next even if the logged in user is not admin
+ * The purpose of this mw is to help render different navbar for admin and not admin users
+ */
 module.exports = () => {
 	return (req, res, next) => {
 		if (

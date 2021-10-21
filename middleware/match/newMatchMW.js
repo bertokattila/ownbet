@@ -1,4 +1,6 @@
-/// adds new match to the database
+/**
+ * Adds new match to the db
+ */
 module.exports = () => {
 	return (req, res, next) => {
 		if (

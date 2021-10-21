@@ -1,5 +1,5 @@
 /**
- * Gets the upcoming matches from the db and them it on res.locals
+ * Gets all matches from the database
  */
 module.exports = () => {
 	return (req, res, next) => {
