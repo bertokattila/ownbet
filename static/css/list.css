@@ -31,6 +31,7 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	text-align: start;
+	width: 200px;
 }
 .last-col {
 	margin-right: 15px;

@@ -1,9 +1,10 @@
 <%- include('header') -%> <%- include('navbar') -%>
 <section class="list-container">
+	<% matches.forEach(match => { %>
 	<div class="list-item">
 		<div class="first-col">
-			<p class="teams">Sevilla - Man City</p>
-			<p class="date">2020. 09. 09.</p>
+			<p class="teams"><%= match.homeTeam%> - <%= match.awayTeam%></p>
+			<p class="date"><%= match.date %></p>
 		</div>
 		<div class="input-col">
 			<input type="text" />
@@ -14,33 +15,6 @@
 			<button class="list-item-btn">Save bet</button>
 		</div>
 	</div>
-	<div class="list-item">
-		<div class="first-col">
-			<p class="teams">Sevilla - Man City</p>
-			<p class="date">2020. 09. 09.</p>
-		</div>
-		<div class="input-col">
-			<input type="text" />
-			<p class="input-separator">-</p>
-			<input type="text" />
-		</div>
-		<div class="last-col">
-			<button class="list-item-btn">Save bet</button>
-		</div>
-	</div>
-	<div class="list-item">
-		<div class="first-col">
-			<p class="teams">Sevilla - Man City</p>
-			<p class="date">2020. 09. 09.</p>
-		</div>
-		<div class="input-col">
-			<input type="text" />
-			<p class="input-separator">-</p>
-			<input type="text" />
-		</div>
-		<div class="last-col">
-			<button class="list-item-btn">Save bet</button>
-		</div>
-	</div>
+	<% })%>
 </section>
 <%- include('footer') -%>
