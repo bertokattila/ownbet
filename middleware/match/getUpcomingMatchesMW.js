@@ -1,4 +1,4 @@
-const matches = require('../../mockDatabase/matches');
+const matches = require('../../mockDatabase/upcomingMatches');
 /**
  * Gets the upcoming matches from the db and them it on res.locals
  */

@@ -38,4 +38,17 @@ module.exports = [
 		},
 		score: 1,
 	},
+	{
+		id: 3,
+		homeTeam: 'Barcelona',
+		awayTeam: 'Man Utd',
+		date: '2021. 05. 19',
+		homeScore: 4,
+		awayScore: 1,
+		bet: {
+			homeTeam: 1,
+			awayTeam: 2,
+		},
+		score: 0,
+	},
 ];

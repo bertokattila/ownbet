@@ -1,13 +1,15 @@
 <%- include('header') -%> <%- include('navbar') -%>
 <section class="list-container">
+	<% leaderboard.forEach(player => { %>
 	<div class="list-item">
 		<div class="player-col">
-			<p class="rank">1.</p>
-			<p class="player-name">Chris P. Bacon</p>
+			<p class="rank"><%= player.rank %>.</p>
+			<p class="player-name"><%= player.name %></p>
 		</div>
 		<div class="point-col">
-			<p>7p</p>
+			<p><%= player.score %>p</p>
 		</div>
 	</div>
+	<% })%>
 </section>
 <%- include('footer') -%>
