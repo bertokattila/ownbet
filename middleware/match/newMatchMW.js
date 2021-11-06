@@ -11,9 +11,6 @@ module.exports = (repo) => {
 			typeof req.body.awayTeam === 'undefined' ||
 			typeof req.body.date === 'undefined'
 		) {
-			console.log(req.body.homeTeam);
-			console.log(req.body.awayTeam);
-			console.log(req.body.date);
 			return next('parameters not provided');
 		}
 		const match = new MatchModel({

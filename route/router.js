@@ -38,7 +38,7 @@ module.exports = (app) => {
 		authMW(),
 		authAdminMW(),
 		authPageAccessMW(),
-		getAllMatchesMW(),
+		getAllMatchesMW(repo),
 		renderMW('admin')
 	);
 
@@ -60,7 +60,7 @@ module.exports = (app) => {
 	/**
 	 * Removes the match from the db
 	 */
-	app.post('/admin/:matchid/delete', authAdminMW(), deleteMatchMW());
+	app.post('/admin/:matchid/delete', authAdminMW(), deleteMatchMW(repo));
 
 	/**
 	 * Renders the list of the upcoming matches

@@ -1,10 +1,14 @@
-const matches = require('../../mockDatabase/matches');
+const requireOption = require('../requireOption');
 /**
  * Gets all matches from the database
  */
-module.exports = () => {
+module.exports = (repo) => {
+	const matches = requireOption(repo, 'matches');
 	return (req, res, next) => {
-		res.locals.matches = matches;
-		return next();
+		matches.find({}, (err, arr) => {
+			if (err) return next(err);
+			res.locals.matches = arr;
+			return next();
+		});
 	};
 };
