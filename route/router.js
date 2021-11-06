@@ -19,7 +19,17 @@ const getBetsOnMatchesMW = require('../middleware/bet/getBetsOnMatchesMW');
 const calculatePointsMW = require('../middleware/bet/calculatePointsMW');
 const renderMW = require('../middleware/renderMW');
 
+const MatchModel = require('../models/match');
+const UserModel = require('../models/user');
+const BetModel = require('../models/bet');
+
 module.exports = (app) => {
+	const repo = {
+		matches: MatchModel,
+		users: UserModel,
+		bets: BetModel,
+	};
+
 	/**
 	 * Renders the admin page if logged in as admin
 	 */
@@ -35,7 +45,7 @@ module.exports = (app) => {
 	/**
 	 * Admin can add new match to the db
 	 */
-	app.post('/admin/newmatch', authAdminMW(), newMatchMW());
+	app.post('/admin/newmatch', authAdminMW(), newMatchMW(repo));
 
 	/**
 	 * Sets the result of the match given by its id
@@ -102,7 +112,7 @@ module.exports = (app) => {
 	/**
 	 * Handles the login request
 	 */
-	app.post('/login', loginMW());
+	app.post('/login', loginMW(repo));
 
 	/**
 	 * Handles the logout request
@@ -113,4 +123,12 @@ module.exports = (app) => {
 	 * Renders the login page
 	 */
 	app.get('/', renderMW('index'));
+
+	/**
+	 * Called when error occurs in a middleware
+	 */
+	app.use((err, req, res, next) => {
+		res.end('Gebasz van');
+		console.log(err);
+	});
 };

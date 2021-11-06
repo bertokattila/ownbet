@@ -17,4 +17,4 @@ const Bet = db.model('Bet', {
 	date: Date,
 });
 
-module.exports = Match;
+module.exports = Bet;

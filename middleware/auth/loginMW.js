@@ -1,34 +1,34 @@
 const session = require('express-session');
-
+const requireOption = require('../requireOption');
 /**
  * Handles the login request
  */
-module.exports = () => {
+module.exports = (repo) => {
+	const users = requireOption(repo, 'users');
+
 	return (req, res, next) => {
-		console.log(req.body);
 		if (
 			typeof req.body.username === 'undefined' ||
 			typeof req.body.password === 'undefined'
 		) {
-			res.send('error');
-			return next();
+			return next('Parameters not given');
 		}
 
-		/// fake password check until mongodb is not implemented
-		if (req.body.username === 'admin' && req.body.password == 'admin') {
-			req.session.isAdmin = true;
-			req.session.loggedIn = true;
-			req.session.username = req.body.username;
-			res.redirect('/admin');
-			return;
-		}
-		if (req.body.username === 'user' && req.body.password == 'user') {
-			req.session.isAdmin = false;
-			req.session.loggedIn = true;
-			req.session.username = req.body.username;
-			res.redirect('/upcoming');
-			return;
-		}
-		res.redirect('/');
+		users.findOne(
+			{ username: req.body.username, password: req.body.password },
+			function (err, user) {
+				if (err) return next(err);
+				if (user === null) {
+					res.redirect('/');
+					return; /// no match
+				}
+				req.session.loggedIn = true;
+				req.session.username = req.body.username;
+				req.session.isAdmin = user.type === 'Admin' ? true : false;
+
+				if (req.session.isAdmin) res.redirect('/admin');
+				else res.redirect('/upcoming');
+			}
+		);
 	};
 };

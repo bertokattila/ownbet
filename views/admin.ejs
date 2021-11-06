@@ -22,28 +22,31 @@
 			</section>
 
 		<div class="newMatchContainer" id="newMatchContainer"></div>
-		<form class="newMatchInputContainer" id="newMatchInputContainer">
+		<form method='POST' action="/admin/newmatch" class="newMatchInputContainer" id="newMatchInputContainer">
 			<h2>New match</h2>
 			<input
 				type="text"
 				class="newMatchTextInput"
 				placeholder="Home team"
+				name="homeTeam"
 				required
 			/>
 			<input
 				type="text"
 				class="newMatchTextInput"
 				placeholder="Away team"
+				name="awayTeam"
 				required
 			/>
 			<input
-				type="date"
+				type="datetime-local"
 				id="newMatchDatePicker"
-				value="2021-10-22"
+				value="2021-12-12T19:30"
 				min="2021-01-01"
 				max="2100-12-31"
+				name="date"
 			/>
-			<button id="newMatchBtn" class="standard-btn">Add match</button>
+			<button id="newMatchBtn" type="submit" class="standard-btn">Add match</button>
 		</form>
 
 		<script>
