@@ -54,7 +54,7 @@ module.exports = (app) => {
 		'/admin/:matchid/setresult',
 		authAdminMW(),
 		checkMatchStartedMW(),
-		setMatchResultMW()
+		setMatchResultMW(repo)
 	);
 
 	/**

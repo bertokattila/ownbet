@@ -8,12 +8,12 @@
 						<p class="date"><%=moment(match.date).format('YYYY. MM. DD. hh:mm'); %></p>
 					</div>
 					<div class="input-col">
-						<input type="text" value="<%= match.homeScore %>" />
+						<input type="text" name="homeScore" form="setResultForm" value="<%= match.homeScore %>" />
 						<p class="input-separator">-</p>
-						<input type="text" value="<%= match.awayScore %>" />
+						<input type="text" name="awayScore" form="setResultForm" value="<%= match.awayScore %>" />
 					</div>
 					<div class="last-col">
-						<form action="" method="POST">
+						<form id="setResultForm" action="/admin/<%= match.id%>/setresult" method="POST">
 							<button class="list-item-btn">Set result</button>
 						</form>
 						<form action="/admin/<%= match.id%>/delete" method="POST">
