@@ -32,19 +32,39 @@ console.log(datetime);
 console.log(datetime.toDateString());
 console.log(datetime.toTimeString());
 */
+const init = () => {
+	const db = require('./config/db');
+	const User = require('./models/user');
+	User.findOne({}, (err, user) => {
+		/// at first start creating sample users
+		if (user === null) {
+			const admin = new User({
+				username: 'admin',
+				password: 'admin',
+				type: 'Admin',
+			});
 
-// const db = require('./config/db');
-// const User = require('./models/user');
+			admin.save((err) => {
+				//console.log(err);
+			});
 
-// const admin = new User({
-// 	username: 'user',
-// 	password: '4321',
-// 	type: 'User',
-// });
+			const sampleUser = new User({
+				username: 'user',
+				password: 'user',
+				type: 'User',
+			});
 
-// admin.save((err) => {
-// 	console.log(err);
-// });
+			admin.save((err) => {
+				//console.log(err);
+			});
+
+			sampleUser.save((err) => {
+				//console.log(err);
+			});
+		}
+	});
+};
+init();
 
 app.listen(3000, function () {
 	console.log('Hello :3000');
