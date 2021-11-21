@@ -69,7 +69,7 @@ module.exports = (app) => {
 		'/upcoming',
 		authMW(),
 		authPageAccessMW(),
-		getUpcomingMatchesMW(),
+		getUpcomingMatchesMW(repo),
 		renderMW('upcoming')
 	);
 

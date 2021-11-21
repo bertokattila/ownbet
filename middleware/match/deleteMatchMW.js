@@ -1,4 +1,5 @@
 const requireOption = require('../requireOption');
+const ObjectId = require('mongoose').Types.ObjectId;
 /**
  * Removes the given match from the database
  */
@@ -7,9 +8,11 @@ module.exports = (repo) => {
 	return (req, res, next) => {
 		if (typeof req.params.matchid === 'undefined')
 			return next('parameter not given');
-		matches.deleteOne({ id: req.params.matchid }, (err) => {
+		console.log(req.params.matchid);
+		matches.deleteOne({ _id: ObjectId(req.params.matchid) }, (err) => {
 			return next(err);
 		});
+
 		res.redirect('/admin');
 		return next();
 	};
