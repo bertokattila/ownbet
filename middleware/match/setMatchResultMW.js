@@ -1,5 +1,4 @@
 const requireOption = require('../requireOption');
-const ObjectId = require('mongoose').Types.ObjectId;
 
 /**
  * Saves the given result of the match into db
@@ -22,7 +21,7 @@ module.exports = (repo) => {
 			res.redirect('/admin');
 			return next('Score must be a non-negative integer');
 		}
-		matches.findOne({ _id: ObjectId(req.params.matchid) }, (err, match) => {
+		matches.findById(req.params.matchid, (err, match) => {
 			if (err) return next(err);
 
 			match.result = {

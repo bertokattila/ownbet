@@ -23,7 +23,8 @@ module.exports = (repo) => {
 					return; /// no match
 				}
 				req.session.loggedIn = true;
-				req.session.username = req.body.username;
+				req.session.username = user.username;
+				req.session.userid = user.id;
 				req.session.isAdmin = user.type === 'Admin' ? true : false;
 
 				if (req.session.isAdmin) res.redirect('/admin');

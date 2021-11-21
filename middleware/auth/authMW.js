@@ -13,6 +13,7 @@ module.exports = () => {
 			return res.redirect('/');
 		}
 		res.locals.username = req.session.username;
+		res.locals.userid = req.session.userid;
 		return next();
 	};
 };

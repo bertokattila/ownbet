@@ -5,7 +5,7 @@ const authAdminMW = require('../middleware/auth/authAdminMW');
 const authPageAccessMW = require('../middleware/auth/authPageAccessMW');
 
 const addBetMW = require('../middleware/bet/addBetMW');
-const checkBetMW = require('../middleware/bet/addBetMW');
+const checkBetMW = require('../middleware/bet/checkBetMW');
 const getLeaderboardMW = require('../middleware/leaderboard/getLeaderboardMW');
 
 const checkMatchStartedMW = require('../middleware/match/checkMatchStartedMW');
@@ -53,7 +53,7 @@ module.exports = (app) => {
 	app.post(
 		'/admin/:matchid/setresult',
 		authAdminMW(),
-		checkMatchStartedMW(),
+		checkMatchStartedMW(repo),
 		setMatchResultMW(repo)
 	);
 
@@ -79,9 +79,9 @@ module.exports = (app) => {
 	app.post(
 		'/upcoming/:matchid/makebet',
 		authMW(),
-		checkMatchStartedMW(),
+		checkMatchStartedMW(repo),
 		checkBetMW(),
-		addBetMW()
+		addBetMW(repo)
 	);
 
 	/**

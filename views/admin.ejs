@@ -5,7 +5,7 @@
 				<div class="list-item">
 					<div class="first-col">
 						<p class="teams"><%= match.homeTeam%> - <%= match.awayTeam%></p>
-						<p class="date"><%=moment(match.date).format('YYYY. MM. DD. hh:mm'); %></p>
+						<p class="date"><%=moment(match.date).format('YYYY. MM. DD. HH:mm'); %></p>
 					</div>
 					<div class="input-col">
 						<input type="text" name="homeScore" form="setResultForm<%= match.id%>" value="<%= match.result.homeScore %>" />

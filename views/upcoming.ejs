@@ -5,16 +5,33 @@
 		<div class="first-col">
 			<p class="teams"><%= match.homeTeam%> - <%= match.awayTeam%></p>
 			<p class="date">
-				<%=moment(match.date).format('YYYY. MM. DD. hh:mm'); %>
+				<%=moment(match.date).format('YYYY. MM. DD. HH:mm'); %>
 			</p>
 		</div>
+
 		<div class="input-col">
-			<input type="text" value="<%= match.result.homeScore %>" />
+			<input
+				name="homeScore"
+				type="text"
+				form="makeBetForm<%= match.id%>"
+				value="<%= match.betHome%>"
+			/>
 			<p class="input-separator">-</p>
-			<input type="text" value="<%= match.result.awayScore %>" />
+			<input
+				name="awayScore"
+				type="text"
+				form="makeBetForm<%= match.id%>"
+				value=""
+			/>
 		</div>
 		<div class="last-col">
-			<button class="list-item-btn">Save bet</button>
+			<form
+				id="makeBetForm<%= match.id%>"
+				action="/upcoming/<%= match.id%>/makebet"
+				method="POST"
+			>
+				<button type="submit" class="list-item-btn">Save bet</button>
+			</form>
 		</div>
 	</div>
 	<% })%>
