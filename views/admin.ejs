@@ -14,7 +14,7 @@
 					</div>
 					<div class="last-col">
 						<form id="setResultForm<%= match.id%>" action="/admin/<%= match.id%>/setresult" method="POST">
-							<button type="submit" class="list-item-btn">Set result</button>
+							<button type="submit" <% if(!moment().isAfter(match.date)){ %> disabled <% } %> class="list-item-btn">Set result</button>
 						</form>
 						<form action="/admin/<%= match.id%>/delete" method="POST">
 							<button type="submit" class="list-item-btn">Remove</button>
@@ -45,7 +45,7 @@
 			<input
 				type="datetime-local"
 				id="newMatchDatePicker"
-				value="2021-12-12T19:30"
+				value="<%= moment().format('YYYY-MM-DDTHH:mm'); %>"
 				min="2021-01-01"
 				max="2100-12-31"
 				name="date"

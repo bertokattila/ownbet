@@ -5,10 +5,13 @@ const ObjectId = require('mongoose').Types.ObjectId;
  */
 module.exports = (repo) => {
 	const matches = requireOption(repo, 'matches');
+	const bets = requireOption(repo, 'bets');
 	return (req, res, next) => {
 		if (typeof req.params.matchid === 'undefined')
 			return next('parameter not given');
-		console.log(req.params.matchid);
+		bets.deleteMany({ _match: ObjectId(req.params.matchid) }, (err) => {
+			return next(err);
+		});
 		matches.deleteOne({ _id: ObjectId(req.params.matchid) }, (err) => {
 			return next(err);
 		});

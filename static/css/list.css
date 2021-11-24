@@ -54,6 +54,9 @@
 	padding: 0;
 	border: 0;
 }
+.list-item-btn:disabled {
+	opacity: 0.5;
+}
 .input-col {
 	display: flex;
 	flex-direction: row;

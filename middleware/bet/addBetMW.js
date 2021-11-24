@@ -37,6 +37,5 @@ module.exports = (repo) => {
 		);
 
 		res.redirect('/upcoming');
-		//return next();
 	};
 };

@@ -23,6 +23,7 @@ const renderMW = require('../middleware/renderMW');
 const MatchModel = require('../models/match');
 const UserModel = require('../models/user');
 const BetModel = require('../models/bet');
+const sortLeaderboardMW = require('../middleware/leaderboard/sortLeaderboardMW');
 
 module.exports = (app) => {
 	const repo = {
@@ -108,6 +109,7 @@ module.exports = (app) => {
 		authPageAccessMW(),
 		getAllUserMW(repo),
 		getLeaderboardMW(repo),
+		sortLeaderboardMW(),
 		renderMW('leaderboard')
 	);
 

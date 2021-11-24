@@ -7,7 +7,6 @@ const calculateScoreUtil = require('../../utils/calculateScoreUtil');
  */
 module.exports = (repo) => {
 	const bets = requireOption(repo, 'bets');
-
 	return (req, res, next) => {
 		if (typeof res.locals.users === 'undefined')
 			return next('There are no users');
@@ -20,15 +19,15 @@ module.exports = (repo) => {
 						_user: ObjectId(user.id),
 					})
 					.populate('_match')
-					.exec((error, bets) => {
+					.exec((error, userBets) => {
 						if (error) next(error);
-
-						bets = bets.filter((bet) => {
+						userBets = userBets.filter((bet) => {
 							/// filter out the matches without result administered
-							return typeof bet._match.result !== 'undefined';
+							return typeof bet._match.result.homeScore !== 'undefined';
 						});
+
 						let sumScore = 0;
-						for (const bet of bets) {
+						for (const bet of userBets) {
 							sumScore += calculateScoreUtil(
 								bet.result.homeScore,
 								bet.result.awayScore,
@@ -36,13 +35,11 @@ module.exports = (repo) => {
 								bet._match.result.awayScore
 							);
 						}
-
 						res.locals.leaderboard.push({
 							rank: NaN,
 							name: user.username,
 							score: sumScore,
 						});
-
 						resolve();
 					});
 			});

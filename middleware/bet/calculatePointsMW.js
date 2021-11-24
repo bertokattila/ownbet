@@ -11,6 +11,7 @@ module.exports = () => {
 				typeof match.betHome === 'undefined' ||
 				typeof match.betAway === 'undefined'
 			) {
+				match.score = 0;
 				continue;
 			}
 			match.score = calculateScoreUtil(
