@@ -17,27 +17,32 @@ module.exports = (repo) => {
 			},
 			(err, arr) => {
 				if (err) return next(err);
-				arr2 = arr.map((match) => {
-					bets.findOne(
-						{
-							// TODO
-							_match: ObjectId(match.id),
-							_user: ObjectId(res.locals.userid),
-						},
-						(error, bet) => {
-							if (err) next(error);
-							if (bet != null) {
-								match.betHome = bet.result.homeScore;
-								match.betAway = bet.result.awayScore;
+				res.locals.matches = arr;
+				let promises = [];
+				for (const match of res.locals.matches) {
+					const promise = new Promise((resolve, reject) => {
+						bets.findOne(
+							{
+								_match: ObjectId(match.id),
+								_user: ObjectId(res.locals.userid),
+							},
+							(error, bet) => {
+								if (err) next(error);
+								if (bet != null) {
+									match.betHome = bet.result.homeScore;
+									match.betAway = bet.result.awayScore;
+								}
+								console.log(bet);
+								resolve();
 							}
-						}
-					);
-					console.log(match);
-					return match;
+						);
+					});
+					promises.push(promise);
+				}
+
+				Promise.all(promises).then(() => {
+					return next();
 				});
-				res.locals.matches = arr2;
-				console.log(arr2);
-				return next();
 			}
 		);
 	};
