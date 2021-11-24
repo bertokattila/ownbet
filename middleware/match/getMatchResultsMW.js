@@ -1,10 +1,21 @@
-const results = require('../../mockDatabase/results');
+const requireOption = require('../requireOption');
 /**
  * Gets matches with administered result from the database
  */
-module.exports = () => {
+module.exports = (repo) => {
+	const matches = requireOption(repo, 'matches');
 	return (req, res, next) => {
-		res.locals.results = results;
-		return next();
+		matches.find(
+			{
+				result: {
+					$exists: true,
+				},
+			},
+			(err, results) => {
+				if (err) next(err);
+				res.locals.matches = results;
+				return next();
+			}
+		);
 	};
 };

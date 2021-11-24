@@ -18,7 +18,7 @@ module.exports = (repo) => {
 			(err, arr) => {
 				if (err) return next(err);
 				res.locals.matches = arr;
-				let promises = [];
+				const promises = [];
 				for (const match of res.locals.matches) {
 					const promise = new Promise((resolve, reject) => {
 						bets.findOne(
@@ -32,7 +32,6 @@ module.exports = (repo) => {
 									match.betHome = bet.result.homeScore;
 									match.betAway = bet.result.awayScore;
 								}
-								console.log(bet);
 								resolve();
 							}
 						);

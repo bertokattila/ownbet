@@ -77,6 +77,7 @@
 	justify-content: flex-start;
 	text-align: start;
 	font-weight: bold;
+	width: 100px;
 }
 .tip-col {
 	display: flex;
@@ -84,6 +85,7 @@
 	justify-content: flex-start;
 	text-align: start;
 	font-weight: bold;
+	width: 100px;
 }
 .point-col p,
 .player-col p {

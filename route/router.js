@@ -6,6 +6,7 @@ const authPageAccessMW = require('../middleware/auth/authPageAccessMW');
 
 const addBetMW = require('../middleware/bet/addBetMW');
 const checkBetMW = require('../middleware/bet/checkBetMW');
+const getAllUserMW = require('../middleware/leaderboard/getAllUserMW');
 const getLeaderboardMW = require('../middleware/leaderboard/getLeaderboardMW');
 
 const checkMatchStartedMW = require('../middleware/match/checkMatchStartedMW');
@@ -92,8 +93,8 @@ module.exports = (app) => {
 		'/results',
 		authMW(),
 		authPageAccessMW(),
-		getMatchResultsMW(),
-		getBetsOnMatchesMW(),
+		getMatchResultsMW(repo),
+		getBetsOnMatchesMW(repo),
 		calculatePointsMW(),
 		renderMW('results')
 	);
@@ -105,7 +106,8 @@ module.exports = (app) => {
 		'/leaderboard',
 		authMW(),
 		authPageAccessMW(),
-		getLeaderboardMW(),
+		getAllUserMW(repo),
+		getLeaderboardMW(repo),
 		renderMW('leaderboard')
 	);
 
