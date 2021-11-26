@@ -23,15 +23,6 @@ app.use((err, req, res, next) => {
 
 require('./route/router')(app, express);
 
-const matches = require('./mockDatabase/matches');
-
-//console.log(matches[0].date);
-
-/*var datetime = new Date();
-console.log(datetime);
-console.log(datetime.toDateString());
-console.log(datetime.toTimeString());
-*/
 const init = () => {
 	const db = require('./config/db');
 	const User = require('./models/user');
